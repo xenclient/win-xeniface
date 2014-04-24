@@ -119,7 +119,8 @@ IoctlRead(
     if (OutLen < Length)
         goto fail4;
 
-    XenIfaceDebugPrint(INFO, "|%s: (\"%s\")=(%d)->\"%s\"\n", __FUNCTION__, Buffer, Length, Value);
+    //Don't print what is read from xenstore...could be a password!!
+    //XenIfaceDebugPrint(INFO, "|%s: (\"%s\")=(%d)->\"%s\"\n", __FUNCTION__, Buffer, Length, Value);
 
     RtlCopyMemory(Buffer, Value, Length);
     Buffer[Length - 1] = 0;
