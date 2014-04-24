@@ -56,7 +56,8 @@ ServiceDestDir.NT.Copy = 11
 %XenIfaceDevice.DeviceDesc% =XenIface_Device, XENBUS\VEN_XS0002&DEV_IFACE&REV_00000001
 
 [XenIface_Device.NT$ARCH$]
-CopyFiles=XenIface_Device.NT.Copy, ServiceDestDir.NT.Copy
+CopyFiles=XenIface_Device.NT.Copy
+;, ServiceDestDir.NT.Copy
 
 [XenIFace_Device.NT.Copy]
 xeniface.sys
@@ -68,7 +69,7 @@ liteagent.exe
 
 [Xeniface_Device.NT$ARCH$.Services]
 AddService = xeniface, %SPSVCINST_ASSOCSERVICE%, xeniface_Service_Inst
-AddService = xenlite, %LITESVC_FLAGS%, xenlite_Service_Inst
+;AddService = xenlite, %LITESVC_FLAGS%, xenlite_Service_Inst
 
 [xeniface_Service_Inst]
 DisplayName    = %XenIfaceDevice.DeviceDesc%
@@ -91,7 +92,7 @@ ServiceBinary  = %11%\liteagent.exe
 
 [SourceDisksFiles]
 xeniface.sys  = 1,,
-liteagent.exe = 1,,
+;liteagent.exe = 1,,
 
 [Strings]
 SPSVCINST_ASSOCSERVICE= 0x00000002
